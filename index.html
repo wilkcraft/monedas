@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de monedas antiguas</title>
+    <link rel="icon" href="cripto.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .coin-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .coin-card h2 {
+            margin-top: 0;
+        }
+
+        .coin-images {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .coin-images img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .coin-details {
+            text-align: left;
+        }
+
+        .coin-details p {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gallery">
+        <div class="coin-card">
+            <h2>5 Pesetas - Franco</h2>
+            <div class="coin-images">
+                <img src="5 pesetas delante.jpeg" alt="Imagen frontal de la moneda">
+                <img src="5 pesetas detrás.jpeg" alt="Imagen trasera de la moneda">
+            </div>
+            <div class="coin-details">
+                <p><strong>Precio:</strong> 1000€</p>
+                <p><strong>Año:</strong> 1957</p>
+                <p><strong>Detalles:</strong> Tiene una estrella y la palabra "ptas"</p>
+                <p><strong>Propietario:</strong> Miguel</p>
+            </div>
+        </div>
+
+        <div class="coin-card">
+            <h2>5 Pesetas - Franco</h2>
+            <div class="coin-images">
+                <img src="1 peseta delante.jpeg" alt="Imagen frontal de la moneda">
+                <img src="1 peseta detrás.jpeg" alt="Imagen trasera de la moneda">
+            </div>
+            <div class="coin-details">
+                <p><strong>Precio:</strong> 3€</p>
+                <p><strong>Año:</strong> 1985</p>
+                <p><strong>Detalles:</strong> Tiene una "M"</p>
+                <p><strong>Propietario:</strong> Miguel</p>
+            </div>
+        </div>
+
+        <div class="coin-card">
+            <h2>5 Pesetas - Franco</h2>
+            <div class="coin-images">
+                <img src="10 centimos delante.jpeg" alt="Imagen frontal de la moneda">
+                <img src="10 centimos detrás.jpeg" alt="Imagen trasera de la moneda">
+            </div>
+            <div class="coin-details">
+                <p><strong>Precio:</strong> 6€</p>
+                <p><strong>Año:</strong> 1945</p>
+                <p><strong>Detalles:</strong> Ninguno</p>
+                <p><strong>Propietario:</strong> Javier</p>
+            </div>
+        </div>
+
+        <div class="coin-card">
+            <h2>5 Pesetas - Franco</h2>
+            <div class="coin-images">
+                <img src="medio franco delante.jpeg" alt="Imagen frontal de la moneda">
+                <img src="medio franco detras.jpeg" alt="Imagen trasera de la moneda">
+            </div>
+            <div class="coin-details">
+                <p><strong>Precio:</strong> 8€</p>
+                <p><strong>Año:</strong> 1976</p>
+                <p><strong>Detalles:</strong> Ninguno</p>
+                <p><strong>Propietario:</strong> Javier</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
