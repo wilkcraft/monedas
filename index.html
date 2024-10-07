@@ -9,11 +9,12 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            align-items: flex-start;
+            flex-direction: column;
         }
 
         .gallery {
@@ -21,9 +22,9 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            padding: 20px;
             max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
+            margin: 20px auto;
         }
 
         .coin-card {
@@ -31,9 +32,18 @@
             border: 1px solid #ccc;
             border-radius: 8px;
             padding: 20px;
-            width: 300px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
+            flex: 1 1 300px;
+            max-width: 300px;
+            min-width: 240px;
+        }
+
+        /* Primera tarjeta alineada al resto */
+        .coin-card:first-child {
+            flex: 1 1 300px;
+            max-width: 300px; /* Se mantiene el ancho como las demás */
+            margin-bottom: 20px;
         }
 
         .coin-card h2 {
@@ -44,14 +54,21 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+            flex-wrap: nowrap; /* No permitir que las imágenes se apilen */
         }
 
         .coin-images img {
-            width: 120px;
-            height: 120px;
+            width: 80px; /* Tamaño más pequeño para las imágenes */
+            height: 80px; /* Tamaño más pequeño para las imágenes */
             object-fit: cover;
             border: 1px solid #ddd;
             border-radius: 8px;
+            margin-right: 10px; /* Espacio entre las imágenes */
+            cursor: pointer; /* Indica que se puede hacer clic */
+        }
+
+        .coin-images img:last-child {
+            margin-right: 0; /* Quita el margen de la última imagen */
         }
 
         .coin-details {
@@ -61,16 +78,58 @@
         .coin-details p {
             margin: 8px 0;
         }
+
+        /* Modal para previsualización de imágenes */
+        #imageModal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #imageModal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+
+        /* Botón para cerrar el modal */
+        #imageModal .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .coin-images img {
+                width: 60px; /* Tamaño aún más pequeño en pantallas pequeñas */
+                height: 60px;
+            }
+
+            .coin-card:first-child {
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="gallery">
         <div class="coin-card">
-            <h2>5 Pesetas - Franco</h2>
+            <h2>5 Pesetas - Franco (Primera Moneda)</h2>
             <div class="coin-images">
-                <img src="5 pesetas delante.jpeg" alt="Imagen frontal de la moneda">
-                <img src="5 pesetas detrás.jpeg" alt="Imagen trasera de la moneda">
+                <img src="5 pesetas delante.jpeg" alt="Imagen frontal de la moneda" onclick="openModal(this)">
+                <img src="5 pesetas detrás.jpeg" alt="Imagen trasera de la moneda" onclick="openModal(this)">
             </div>
             <div class="coin-details">
                 <p><strong>Precio:</strong> 1000€</p>
@@ -83,8 +142,8 @@
         <div class="coin-card">
             <h2>5 Pesetas - Franco</h2>
             <div class="coin-images">
-                <img src="1 peseta delante.jpeg" alt="Imagen frontal de la moneda">
-                <img src="1 peseta detrás.jpeg" alt="Imagen trasera de la moneda">
+                <img src="1 peseta delante.jpeg" alt="Imagen frontal de la moneda" onclick="openModal(this)">
+                <img src="1 peseta detrás.jpeg" alt="Imagen trasera de la moneda" onclick="openModal(this)">
             </div>
             <div class="coin-details">
                 <p><strong>Precio:</strong> 3€</p>
@@ -97,8 +156,8 @@
         <div class="coin-card">
             <h2>5 Pesetas - Franco</h2>
             <div class="coin-images">
-                <img src="10 centimos delante.jpeg" alt="Imagen frontal de la moneda">
-                <img src="10 centimos detrás.jpeg" alt="Imagen trasera de la moneda">
+                <img src="10 centimos delante.jpeg" alt="Imagen frontal de la moneda" onclick="openModal(this)">
+                <img src="10 centimos detrás.jpeg" alt="Imagen trasera de la moneda" onclick="openModal(this)">
             </div>
             <div class="coin-details">
                 <p><strong>Precio:</strong> 6€</p>
@@ -111,8 +170,8 @@
         <div class="coin-card">
             <h2>5 Pesetas - Franco</h2>
             <div class="coin-images">
-                <img src="medio franco delante.jpeg" alt="Imagen frontal de la moneda">
-                <img src="medio franco detras.jpeg" alt="Imagen trasera de la moneda">
+                <img src="medio franco delante.jpeg" alt="Imagen frontal de la moneda" onclick="openModal(this)">
+                <img src="medio franco detras.jpeg" alt="Imagen trasera de la moneda" onclick="openModal(this)">
             </div>
             <div class="coin-details">
                 <p><strong>Precio:</strong> 8€</p>
@@ -122,6 +181,28 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal para previsualización de imágenes -->
+    <div id="imageModal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img id="modalImage" src="">
+    </div>
+
+    <script>
+        // Función para abrir el modal y mostrar la imagen
+        function openModal(imageElement) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex";
+            modalImg.src = imageElement.src;
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
