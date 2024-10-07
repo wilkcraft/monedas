@@ -42,7 +42,7 @@
         /* Primera tarjeta alineada al resto */
         .coin-card:first-child {
             flex: 1 1 300px;
-            max-width: 300px; /* Se mantiene el ancho como las demás */
+            max-width: 300px;
             margin-bottom: 20px;
         }
 
@@ -52,9 +52,8 @@
 
         .coin-images {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            flex-wrap: nowrap; /* No permitir que las imágenes se apilen */
+            justify-content: center; /* Centrar las imágenes horizontalmente */
+            gap: 0; /* Elimina el espacio entre las imágenes */
         }
 
         .coin-images img {
@@ -63,12 +62,7 @@
             object-fit: cover;
             border: 1px solid #ddd;
             border-radius: 8px;
-            margin-right: 10px; /* Espacio entre las imágenes */
             cursor: pointer; /* Indica que se puede hacer clic */
-        }
-
-        .coin-images img:last-child {
-            margin-right: 0; /* Quita el margen de la última imagen */
         }
 
         .coin-details {
@@ -126,7 +120,7 @@
 
     <div class="gallery">
         <div class="coin-card">
-            <h2>5 Pesetas - Franco (Primera Moneda)</h2>
+            <h2>5 Pesetas - Franco</h2>
             <div class="coin-images">
                 <img src="5 pesetas delante.jpeg" alt="Imagen frontal de la moneda" onclick="openModal(this)">
                 <img src="5 pesetas detrás.jpeg" alt="Imagen trasera de la moneda" onclick="openModal(this)">
@@ -140,7 +134,7 @@
         </div>
 
         <div class="coin-card">
-            <h2>5 Pesetas - Franco</h2>
+            <h2>1 peseta - Juan Carlos I</h2>
             <div class="coin-images">
                 <img src="1 peseta delante.jpeg" alt="Imagen frontal de la moneda" onclick="openModal(this)">
                 <img src="1 peseta detrás.jpeg" alt="Imagen trasera de la moneda" onclick="openModal(this)">
@@ -154,7 +148,7 @@
         </div>
 
         <div class="coin-card">
-            <h2>5 Pesetas - Franco</h2>
+            <h2>10 centimos - Caballo España</h2>
             <div class="coin-images">
                 <img src="10 centimos delante.jpeg" alt="Imagen frontal de la moneda" onclick="openModal(this)">
                 <img src="10 centimos detrás.jpeg" alt="Imagen trasera de la moneda" onclick="openModal(this)">
@@ -168,7 +162,7 @@
         </div>
 
         <div class="coin-card">
-            <h2>5 Pesetas - Franco</h2>
+            <h2>1/2 franco - República francesa</h2>
             <div class="coin-images">
                 <img src="medio franco delante.jpeg" alt="Imagen frontal de la moneda" onclick="openModal(this)">
                 <img src="medio franco detras.jpeg" alt="Imagen trasera de la moneda" onclick="openModal(this)">
